@@ -2,7 +2,13 @@ var birthday = ["b", "i", "r", "t", "h", "d", "a", "y"];
 
 var guessCounter = 7;
 
-document.onkeydown = function () {myFunction(event)};
+document.onkeypress = function () {myFunction(event)};
+
+function loadFunction() {
+    var blanks = document.getElementById("space1");
+    blanks.textContent = "_  _  _  _  _  _  _  _";
+    var text = blanks.textContent;
+}
 
 function myFunction(event) {
     var key1 = event.key;

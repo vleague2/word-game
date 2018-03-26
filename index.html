@@ -14,7 +14,7 @@
     <!-- Javascript code for game -->
     <script src="assets/javascript/game.js"></script>
 </head>
-<body>
+<body onload="loadFunction()">
     <!-- Page title in a jumbotron class -->
     <div class="jumbotron jumbotron-fluid p-3">
         <div class="container">
@@ -37,7 +37,7 @@
                     </h5>
                     <!-- Text itself -->
                     <div class="card-body text-center">
-                        Try to guess the correct word by typing one letter at a time. If you guess wrong 8 times, you'll lose!
+                        Try to guess the correct word by typing one letter at a time. If you guess wrong 8 times, you'll lose! Press any key to get started.
                     </div>
                 </div>
             </Div>
@@ -51,7 +51,7 @@
                 <div class="card">
                     <!-- The text itself -->
                     <div class="card-body text-center">
-                        <p id="space1">_</p><p id="space2">_</p>_ _ _ _ _ _ _ 
+                        <span id="space1"></span>
                     </div>
                 </div>
             </div>
