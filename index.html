@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Hangman: Pusheen Edition</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Reset stylesheet -->
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <!-- Bootstrap 4 stylesheet -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico" rel="stylesheet">
     <!-- My stylesheet -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <!-- Javascript code for game -->
     <script src="assets/javascript/game.js"></script>
 </head>
+<!-- This makes javascript load some things when the page loads -->
 <body onload="loadFunction()">
+
     <!-- Page title in a jumbotron class -->
     <div class="jumbotron jumbotron-fluid p-3">
         <div class="container">
@@ -72,6 +74,7 @@
                 <div class="card">
                     <!-- The text itself -->
                     <div class="card-body text-center">
+                        <strong> Incorrect Guesses: </strong><br>
                         <p id="incorrect-letter"></p>
                     </div>
                 </div>

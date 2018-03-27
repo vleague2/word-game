@@ -6,7 +6,7 @@ document.onkeypress = function () {myFunction(event)};
 
 function loadFunction() {
     var blanks = document.getElementById("space1");
-    blanks.textContent = "_  _  _  _  _  _  _  _";
+    blanks.textContent = "_   _   _   _   _   _   _   _";
     var text = blanks.textContent;
 }
 

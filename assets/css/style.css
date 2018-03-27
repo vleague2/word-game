@@ -1,0 +1,17 @@
+body {
+    background-color: #fcf0e4;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.jumbotron {
+    background-color: #555555;
+    color: white;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+}
+
+.lead {
+    font-family: 'Open Sans', sans-serif;
+}
