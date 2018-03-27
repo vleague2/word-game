@@ -18,7 +18,7 @@
 <body onload="loadFunction()">
 
     <!-- Page title in a jumbotron class -->
-    <div class="jumbotron jumbotron-fluid p-3">
+    <div class="jumbotron jumbotron-fluid p-3 mb-0">
         <div class="container">
             <h1 class="display-4 text-center">Hangman</h1>
             <p class="lead text-center">Pusheen Edition</p>
@@ -26,13 +26,14 @@
     </div>
 
     <!-- Page layout via grid -->
-    <div class="container">
-        <!-- First row, which contains instructions -->
-        <div class="row">
-            <!-- They span the width of the page -->
-            <div class="col-md-12">
-                <!-- Card to hold the content -->
-                <div class="card p-3 mb-3">
+    <div class="container mt-0">
+        
+        <!-- First row, which contains the instructions, word box, and the hangman image -->
+        <div class="row align-items-center mb-3">
+            <!-- Left column, which contains the word box -->
+            <div class="col-md-7">
+                <!-- Inserting a card to house the instructions  -->
+                <div class="card p-2 mb-2">
                     <!-- Instructions title -->
                     <h5 class="card-title text-center">
                         How to Play
@@ -42,13 +43,7 @@
                         Try to guess the correct word by typing one letter at a time. If you guess wrong 8 times, you'll lose! Press any key to get started.
                     </div>
                 </div>
-            </Div>
-        </div>
 
-        <!-- Second row, which contains the word box and the hangman image -->
-        <div class="row align-items-center mb-3">
-            <!-- Left column, which contains the word box -->
-            <div class="col-md-7">
                 <!-- Inserting a card to house the text -->
                 <div class="card">
                     <!-- The text itself -->
@@ -59,14 +54,14 @@
             </div>
 
             <!-- Right column, which contains the hangman image -->
-            <div class="col-md-5 text-right">
-                <!-- Currently a placeholder image -->
-                <img src="assets/images/gallows_placeholder.gif">
+            <div class="col-md-5 text-center">
+                <!-- Hangman images -->
+                <img id="hangman-img" src="assets/images/snowman_empty.png">
                 <p class="text-center"> Guesses remaining: <span id="guesses"></span></p>
             </div>
         </div>
 
-        <!-- Third row, which contains the letters guessed and the dancing Pusheen -->
+        <!-- Second row, which contains the letters guessed, wins/losses, and the dancing Pusheen -->
         <div class="row mb-3">
             <!-- Left column, which contains the letters guessed -->
             <div class="col-md-7">
@@ -78,25 +73,18 @@
                         <p id="incorrect-letter"></p>
                     </div>
                 </div>
+
+                <!-- Inserting win and loss counters -->
+                <div class="text-center pt-3">
+                    <h4> Wins: # Losses: #</h4>
+                </div>
+
             </div>
 
             <!-- Right column, which contains the dancing Pusheen -->
-            <div class="col-md-5 text-right">
+            <div class="col-md-5 text-center">
                 <!-- Placeholder Pusheen -->
                 <img src="assets/images/dancing_pusheen.gif" width="70%">
-            </div>
-        </div>
-
-        <!-- Fourth row, which contains wins and losses -->
-        <div class="row mb-5 mt-4">
-            <!-- Left column, which contains wins -->
-            <div class="col-md-6 text-right">
-                <h3>Wins: #</h3>
-            </div>
-
-            <!-- Right column, which contains losses -->
-            <div class="col-md-6 text-left">
-                <h3>Losses: #</h3>
             </div>
         </div>
     </div>
