@@ -83,27 +83,35 @@ var snowmanArray = ["../images/snowman_snowflake.png", "../images/snowman_body1.
                 // If the letter is not one of the letters in the random word:
                 else {
 
+                    
+                    //  CURRENT PROBLEM. BECAUSE THIS IS IN A FOR LOOP, THE PROGRAM IS RUNNING THE INCORRECT VARIABLE THROUGH THE FOLLOWING COMMANDS LIKE 9 TIMES AKA AS MANY AS THE LENGTH OF THE WORD. HELP...
+
                     // Create a variable for the wrong keyup
                     var wrongGuess = event.key;
+
+                    // Reduce guesses remaining by one
+                    guessCounter--;
+
+                    // Display new guessCounter
+                    guessDisplay.textContent = guessCounter;
 
                     // Add the letter to the incorrect guesses array
                     incorrectArray.push(wrongGuess);
 
                     // Hook up incorrect gueses to DOM 
                     var incorrectDisplay = document.getElementById("incorrect-letter");
-
+ 
                     // and then display
                     incorrectDisplay.textContent = incorrectArray;
-
-                    // Reduce guesses remaining by one
-                    guessCounter--;
-
-                    // Update display of guessCounter
-                    guessDisplay.textContent = guessCounter;
-
-                    // Trigger next iteration of snowman image
-                    snowmanArray++;
+ 
+                     
+ 
+                     
+ 
+                     // Trigger next iteration of snowman image                    
                 }
+
+                   
             }           
         }
         
