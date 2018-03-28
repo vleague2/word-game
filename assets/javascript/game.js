@@ -54,15 +54,15 @@ var snowmanImage = document.getElementById("hangman-img");
 var snowmanArray = ["../images/snowman_snowflake.png", "../images/snowman_body1.png", "../images/snowman_body2.png", "../images/snowman_body3.png", "../images/snowman_eyes.png", "../images/snowman_mouth.png", "../images/snowman_final.png"];
 
 
-
+//make letter generation a function & call it when wins and losses are ++
 
 // THE GAME ITSELF!
 
-// Create a while loop based on remaining letters (> 0) so that the player can enter input while there are still letters to be guessed
-    if (remainingLetters > 0) {
+// Player presses a letter, which initiates a function
+    document.onkeyup = function(event) { 
 
-    // Player presses a letter, which initiates a function
-        document.onkeyup = function(event) { 
+        // Create a while loop based on remaining guesses (> 0) so that the player can enter input while there are still letters to be guessed
+        if ((guessCounter > 0) && (remainingLetters >0)) {
 
             // Create a loop that runs through the letters in the random word
             for (var j = 0; j < randomWord.length; j++) {
@@ -83,7 +83,6 @@ var snowmanArray = ["../images/snowman_snowflake.png", "../images/snowman_body1.
                 // If the letter is not one of the letters in the random word:
                 else {
 
-                    
                     //  CURRENT PROBLEM. BECAUSE THIS IS IN A FOR LOOP, THE PROGRAM IS RUNNING THE INCORRECT VARIABLE THROUGH THE FOLLOWING COMMANDS LIKE 9 TIMES AKA AS MANY AS THE LENGTH OF THE WORD. HELP...
 
                     // Create a variable for the wrong keyup
@@ -108,14 +107,21 @@ var snowmanArray = ["../images/snowman_snowflake.png", "../images/snowman_body1.
  
                      
  
-                     // Trigger next iteration of snowman image                    
-                }
+                     // Trigger next iteration of snowman image                  
 
-                   
+                }     
             }           
         }
-        
+        else if (guessCounter < 1) {
+                lossCounter++;
+                lossDisplay.textContent = lossCounter;
+            }
 
+        else if (remainingLetters < 1) {
+            winCounter++;
+            winDisplay.textContent = winCounter;
+        }
+    }
 
         // When guesses remaining is < 1
 
@@ -135,4 +141,4 @@ var snowmanArray = ["../images/snowman_snowflake.png", "../images/snowman_body1.
 
             // Loop ends also, so snowman image resets, guesses remaining counter resets, incorrect guesses field resets, new randomly generated word
 
-    }
+    
