@@ -44,10 +44,12 @@
     answerArray[i] = "_";
     }
 
-    var answerDisplay = document.getElementById("hangman-word");
-    answerDisplay.textContent = answerArray;   
-
-
+    // Display answer array.
+    function displayAnswer() {
+        var answerDisplay = document.getElementById("hangman-word");
+        answerDisplay.textContent = answerArray;   
+    }
+    
     // Create an array for the incorrect guesses to be added to
     var incorrectArray = []; 
 
@@ -57,41 +59,56 @@
     // Set the current snowman image as a variable
     var snowmanImage = document.getElementById("hangman-img");
 
-// FUNCTIONS to update wins and losses
-
-    function updateWins() {
-        winCounter++;
-        guessCounter = 8;
-        updateDisplays();
-        randomWord = chooseWord();
-        answerArray = [];
-        for (var i = 0; i < randomWord.length; i++) {
-        answerArray[i] = "_";
-        };
-        answerDisplay.textContent = answerArray;
-        incorrectArray = [];
-        remainingLetters = randomWord.length;
-    }
-
-    function updateLosses() {
-        lossCounter++;
-        guessCounter = 8;
-        updateDisplays();
-        randomWord = chooseWord();
-        answerArray = [];
-        for (var i = 0; i < randomWord.length; i++) {
-        answerArray[i] = "_";
-        };
-        answerDisplay.textContent = answerArray;
-        incorrectArray = [];
-        remainingLetters = randomWord.length;
-    }
+// FUNCTIONS to update display & wins and losses
 
     function updateDisplays() {
         displayWin();
         displayLoss();
         displayGuess();
+        displayAnswer();
     }
+
+    function updateWins() {
+        // Increment the win counter
+        winCounter++;
+        // Reset the guess counter
+        guessCounter = 8;
+        // Redefine the randomWord so that it generates a new one
+        randomWord = chooseWord();
+        // Redefine answer array
+        answerArray = [];
+        for (var i = 0; i < randomWord.length; i++) {
+        answerArray[i] = "_";
+        };
+        // Redefine incorrect guesses array
+        incorrectArray = [];
+        // Redefine the number of remaining letters
+        remainingLetters = randomWord.length;
+        // Update all displays with new info
+        updateDisplays();
+    }
+
+    function updateLosses() {
+        // Increment loss counter
+        lossCounter++;
+        // Reset guess counter
+        guessCounter = 8;
+        // Redefine randomWord so it chooses a new one
+        randomWord = chooseWord();
+        // Redefine answer array
+        answerArray = [];
+        for (var i = 0; i < randomWord.length; i++) {
+        answerArray[i] = "_";
+        };
+        // Redefine incorrect guesses array
+        incorrectArray = [];
+        // Redefine the number of remaining letters
+        remainingLetters = randomWord.length;
+        // Update all displays with new info
+        updateDisplays();
+    }
+
+   
 
 
 
@@ -115,7 +132,7 @@ document.onkeyup = function(event) {
                 answerArray[j] = event.key;
 
                 // Update the answer array for the viewer to see
-                answerDisplay.textContent = answerArray;
+                displayAnswer();
 
                 // Reduce letters remaining variable by the number of letters added to the answer array. 
                 remainingLetters--;
