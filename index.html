@@ -11,11 +11,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico" rel="stylesheet">
     <!-- My stylesheet -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <!-- Javascript code for game -->
-    <script src="assets/javascript/game.js"></script>
 </head>
 <!-- This makes javascript load some things when the page loads -->
-<body onload="loadFunction()">
 
     <!-- Page title in a jumbotron class -->
     <div class="jumbotron jumbotron-fluid p-3 mb-0">
@@ -44,11 +41,12 @@
                     </div>
                 </div>
 
-                <!-- Inserting a card to house the text -->
+                <!-- Inserting a card to house the hangman word -->
                 <div class="card">
                     <!-- The text itself -->
                     <div class="card-body text-center">
-                        <span id="space1"></span>
+                        <p>Secret word:</p>
+                        <span id="hangman-word"></span>
                     </div>
                 </div>
             </div>
@@ -70,13 +68,13 @@
                     <!-- The text itself -->
                     <div class="card-body text-center">
                         <strong> Incorrect Guesses: </strong><br>
-                        <p id="incorrect-letter"></p>
+                        <span id="incorrect-letter"></span>
                     </div>
                 </div>
 
                 <!-- Inserting win and loss counters -->
                 <div class="text-center pt-3">
-                    <h4> Wins: # Losses: #</h4>
+                    <h4> Wins: <span id="winCt"></span> Losses: <span id="loseCt"></span></h4>
                 </div>
 
             </div>
@@ -90,6 +88,8 @@
     </div>
         
 
+    <!-- Javascript code for game -->
+    <script src="assets/javascript/game.js"></script>
 
     <!-- Bootstrap Javascript code -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
