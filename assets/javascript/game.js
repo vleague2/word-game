@@ -3,26 +3,29 @@
     // Create variable to count user wins
     var winCounter = 0;
 
-    // Hook up win counter to DOM, so create a variable that will display on the webpage
-    var winDisplay = document.getElementById("winCt");
-
-    winDisplay.textContent = winCounter;
+        //function to display the win count
+        function displayWin() {
+            var winDisplay = document.getElementById("winCt");
+            winDisplay.textContent = winCounter;
+        }
 
     // Create variable to count user losses
     var lossCounter = 0;
 
-    // Hook up loss counter to DOM, so create a variable that will display on the webpage
-    var lossDisplay = document.getElementById("loseCt");
-
-    lossDisplay.textContent = lossCounter;
+        // function to display the loss count
+        function displayLoss() {
+            var lossDisplay = document.getElementById("loseCt");
+            lossDisplay.textContent = lossCounter;
+        }   
 
     // Create variable to count how many guesses the user has left
     var guessCounter = 8;
 
-    // Hook up guess counter to DOM, so create a variable that will display on the webpage
-    var guessDisplay = document.getElementById("guesses");
-
-    guessDisplay.textContent = guessCounter;
+        // function to display the guess counter
+        function displayGuess() {
+            var guessDisplay = document.getElementById("guesses");
+            guessDisplay.textContent = guessCounter;
+        }    
 
     // Create array of words that the user will need to guess
     var words = ["birthday", "celebrate", "meowing", "eating", "shorthair"];
@@ -41,10 +44,9 @@
     answerArray[i] = "_";
     }
 
-    // Hook up answer array to DOM
     var answerDisplay = document.getElementById("hangman-word");
+    answerDisplay.textContent = answerArray;   
 
-    answerDisplay.textContent = answerArray;
 
     // Create an array for the incorrect guesses to be added to
     var incorrectArray = []; 
@@ -59,9 +61,8 @@
 
     function updateWins() {
         winCounter++;
-        winDisplay.textContent = winCounter;
         guessCounter = 8;
-        guessDisplay.textContent = guessCounter;
+        updateDisplays();
         randomWord = chooseWord();
         answerArray = [];
         for (var i = 0; i < randomWord.length; i++) {
@@ -74,9 +75,8 @@
 
     function updateLosses() {
         lossCounter++;
-        lossDisplay.textContent = lossCounter;
         guessCounter = 8;
-        guessDisplay.textContent = guessCounter;
+        updateDisplays();
         randomWord = chooseWord();
         answerArray = [];
         for (var i = 0; i < randomWord.length; i++) {
@@ -87,11 +87,17 @@
         remainingLetters = randomWord.length;
     }
 
-    
+    function updateDisplays() {
+        displayWin();
+        displayLoss();
+        displayGuess();
+    }
 
 
 
 // THE GAME ITSELF!
+updateDisplays();
+
 
 // Player presses a letter, which initiates a function
 document.onkeyup = function(event) { 
@@ -129,7 +135,7 @@ document.onkeyup = function(event) {
                     guessCounter--;
 
                     // Display new guessCounter
-                    guessDisplay.textContent = guessCounter;
+                    displayGuess();
 
                     // Hook up incorrect gueses to DOM 
                     var incorrectDisplay = document.getElementById("incorrect-letter");
