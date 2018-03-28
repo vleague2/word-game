@@ -62,7 +62,7 @@ var snowmanArray = ["../images/snowman_snowflake.png", "../images/snowman_body1.
     document.onkeyup = function(event) { 
 
         // Create a while loop based on remaining guesses (> 0) so that the player can enter input while there are still letters to be guessed
-        if ((guessCounter > 0) && (remainingLetters >0)) {
+        if ((guessCounter > 0) && (remainingLetters > 0)) {
 
             // Create a loop that runs through the letters in the random word
             for (var j = 0; j < randomWord.length; j++) {
@@ -82,26 +82,31 @@ var snowmanArray = ["../images/snowman_snowflake.png", "../images/snowman_body1.
 
                 // If the letter is not one of the letters in the random word:
                 else {
-
-                    //  CURRENT PROBLEM. BECAUSE THIS IS IN A FOR LOOP, THE PROGRAM IS RUNNING THE INCORRECT VARIABLE THROUGH THE FOLLOWING COMMANDS LIKE 9 TIMES AKA AS MANY AS THE LENGTH OF THE WORD. HELP...
-
+                    
                     // Create a variable for the wrong keyup
                     var wrongGuess = event.key;
 
-                    // Reduce guesses remaining by one
-                    guessCounter--;
+                    if ((incorrectArray.indexOf(wrongGuess) < 0) && (answerArray.indexOf(wrongGuess) < 0)) {
+                        // Add the letter to the incorrect guesses array
+                        incorrectArray.push(wrongGuess);
 
-                    // Display new guessCounter
-                    guessDisplay.textContent = guessCounter;
+                        // Reduce guesses remaining by one
+                        guessCounter--;
 
-                    // Add the letter to the incorrect guesses array
-                    incorrectArray.push(wrongGuess);
+                        // Display new guessCounter
+                        guessDisplay.textContent = guessCounter;
 
-                    // Hook up incorrect gueses to DOM 
-                    var incorrectDisplay = document.getElementById("incorrect-letter");
- 
-                    // and then display
-                    incorrectDisplay.textContent = incorrectArray;
+                        // Hook up incorrect gueses to DOM 
+                        var incorrectDisplay = document.getElementById("incorrect-letter");
+
+                        // and then display
+                        incorrectDisplay.textContent = incorrectArray;
+                    } 
+           
+
+                    
+
+                    
  
                      
  
@@ -115,11 +120,15 @@ var snowmanArray = ["../images/snowman_snowflake.png", "../images/snowman_body1.
         else if (guessCounter < 1) {
                 lossCounter++;
                 lossDisplay.textContent = lossCounter;
+                guessCounter = 0;
+                guessDisplay.textContent = guessCounter;
             }
 
         else if (remainingLetters < 1) {
             winCounter++;
             winDisplay.textContent = winCounter;
+            guessCounter = 0;
+            guessDisplay.textContent = guessCounter;
         }
     }
 
