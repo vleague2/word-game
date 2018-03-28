@@ -27,6 +27,11 @@
     // Create array of words that the user will need to guess
     var words = ["birthday", "celebrate", "meowing", "eating", "shorthair"];
 
+    // Choose a random word from the word array using math floor
+    function chooseWord() {
+        return words[Math.floor (Math.random() * words.length)];
+    }
+
     // Assign the result of the random chosen word to a variable
     var randomWord = chooseWord();
 
@@ -51,20 +56,38 @@
     var snowmanImage = document.getElementById("hangman-img");
 
 // FUNCTIONS to update wins and losses
+
     function updateWins() {
         winCounter++;
         winDisplay.textContent = winCounter;
+        guessCounter = 8;
+        guessDisplay.textContent = guessCounter;
+        randomWord = chooseWord();
+        answerArray = [];
+        for (var i = 0; i < randomWord.length; i++) {
+        answerArray[i] = "_";
+        };
+        answerDisplay.textContent = answerArray;
+        incorrectArray = [];
+        remainingLetters = randomWord.length;
     }
 
     function updateLosses() {
         lossCounter++;
         lossDisplay.textContent = lossCounter;
+        guessCounter = 8;
+        guessDisplay.textContent = guessCounter;
+        randomWord = chooseWord();
+        answerArray = [];
+        for (var i = 0; i < randomWord.length; i++) {
+        answerArray[i] = "_";
+        };
+        answerDisplay.textContent = answerArray;
+        incorrectArray = [];
+        remainingLetters = randomWord.length;
     }
 
-    // Choose a random word from the word array using math floor
-    function chooseWord() {
-        return words[Math.floor (Math.random() * words.length)];
-    }
+    
 
 
 
@@ -130,7 +153,6 @@ document.onkeyup = function(event) {
         updateWins();
     }
 }
-
 
         // When guesses remaining is < 1
 
