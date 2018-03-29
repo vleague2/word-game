@@ -20,4 +20,5 @@ Limitations:
 2. The "hangman" image has some minor transparency issues with the snowflakes
 3. The Javascript is not the DRYest thing on the planet....
 4. It's not immediately clear that the game has restarted. The user has to press another key to prompt the display to update
-5. I'm a little disappointed I didn't have the time to make Pusheen transform into a unicorn when the user wins!
+5. It's not mobile friendly
+6. I'm a little disappointed I didn't have the time to make Pusheen transform into a unicorn when the user wins!
