@@ -8,12 +8,13 @@ body {
     color: white;
 }
 
-h1 {
+#title {
     font-family: 'Pacifico', cursive;
 }
 
-.lead {
+#subtitle {
     font-family: 'Open Sans', sans-serif;
+    font-size: 26px;
 }
 
 .snowman-img {
@@ -24,5 +25,5 @@ h1 {
 .snowman-img .overlay{
     position: absolute;
     top: 0;
-    right: 0;
+    left: 18%;
 }

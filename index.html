@@ -12,37 +12,40 @@
     <!-- My stylesheet -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
 </head>
-<!-- This makes javascript load some things when the page loads -->
 
     <!-- Page title in a jumbotron class -->
     <div class="jumbotron jumbotron-fluid p-3 mb-0">
         <div class="container">
-            <h1 class="display-4 text-center">Hangman</h1>
-            <p class="lead text-center">Pusheen Edition</p>
+            <p class="display-4 text-center"> <span id="title">Hangman | </span> <span id="subtitle">Pusheen Edition</span></p>
         </div>
     </div>
 
     <!-- Page layout via grid -->
     <div class="container mt-0">
         
-        <!-- First row, which contains the instructions, word box, and the hangman image -->
-        <div class="row align-items-center mb-3">
-            <!-- Left column, which contains the word box -->
+        <!-- First row, which contains the instructions, secret word box, and the hangman image -->
+        <div class="row align-items-center">
+
+            <!-- Left column, which contains the instructions and secret word box -->
             <div class="col-md-7">
+
                 <!-- Inserting a card to house the instructions  -->
                 <div class="card p-2 mb-2">
+
                     <!-- Instructions title -->
-                    <h5 class="card-title text-center">
+                    <h5 class="card-title text-center mt-2 mb-1">
                         How to Play
                     </h5>
+
                     <!-- Text itself -->
                     <div class="card-body text-center">
-                        Try to guess the correct word by typing one letter at a time. If you guess wrong 8 times, you'll lose! Press any key to get started.
+                        Try to guess the secret word by typing one letter at a time. If you guess wrong 8 times, you'll lose! Press any key to get started. 
                     </div>
                 </div>
 
-                <!-- Inserting a card to house the hangman word -->
+                <!-- Inserting a card to house the secret word -->
                 <div class="card">
+
                     <!-- The text itself -->
                     <div class="card-body text-center">
                         <p>Secret word:</p>
@@ -51,10 +54,11 @@
                 </div>
             </div>
 
-            <!-- Right column, which contains the hangman image -->
+            <!-- Right column, which contains the hangman/snowman image -->
             <div class="col-md-5 text-center">
-                <!-- Hangman images -->
-                <div class="snowman-img mt-2">
+
+                <!-- Hangman/snowman images -->
+                <div class="snowman-img mt-2 mb-3">
                     <img src="assets/images/snowman_empty.png">  
                       
                     <img src="assets/images/snowman_snowflake.png" width="70%" class="overlay" id="7" style="display: none"> 
@@ -73,16 +77,21 @@
 
                     <img src="assets/images/snowman_melted.png" width="70%" class="overlay" id="0" style="display: none">
                 </div>
+
+                <!-- Text to identify how many guesses the user has left -->
                 <p class="text-center"> Guesses remaining: <span id="guesses"></span></p>
             </div>
         </div>
 
         <!-- Second row, which contains the letters guessed, wins/losses, and the dancing Pusheen -->
         <div class="row mb-3">
-            <!-- Left column, which contains the letters guessed -->
+
+            <!-- Left column, which contains the letters guessed and wins/losses-->
             <div class="col-md-7">
-                <!-- Inserting a card to contain the letters -->
+
+                <!-- Inserting a card to contain the letters guessed -->
                 <div class="card">
+
                     <!-- The text itself -->
                     <div class="card-body text-center">
                         <strong> Incorrect Guesses: </strong><br>
@@ -94,17 +103,16 @@
                 <div class="text-center pt-3">
                     <h4> Wins: <span id="winCt"></span> Losses: <span id="loseCt"></span></h4>
                 </div>
-
             </div>
 
             <!-- Right column, which contains the dancing Pusheen -->
             <div class="col-md-5 text-center">
-                <!-- Placeholder Pusheen -->
+
+                <!-- Pusheen -->
                     <img src="assets/images/dancing_pusheen.gif" width="70%">
             </div>
         </div>
     </div>
-        
 
     <!-- Javascript code for game -->
     <script src="assets/javascript/game.js"></script>
