@@ -1,27 +1,32 @@
+/* Styling for the whole document body, aka setting the background color and font */
 body {
     background-color: #fcf0e4;
     font-family: 'Open Sans', sans-serif;
 }
 
+/* Styling for the jumbotron that displays the page title, aka setting the text color and background color */
 .jumbotron {
     background-color: #555555;
     color: white;
 }
 
+/* Styling for the page title itself, to set the font */
 #title {
     font-family: 'Pacifico', cursive;
 }
 
+/* Styling for the page subtitle to set the font and size */
 #subtitle {
     font-family: 'Open Sans', sans-serif;
     font-size: 26px;
 }
 
+/* Styling for the snowman image container, so that the images can stack properly */
 .snowman-img {
     position: relative;
 }
 
-
+/* Styling for the snowman images, so that they can stack properly and be spaced somewhat properly */
 .snowman-img .overlay{
     position: absolute;
     top: 0;
