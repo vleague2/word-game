@@ -15,3 +15,14 @@ h1 {
 .lead {
     font-family: 'Open Sans', sans-serif;
 }
+
+.snowman-img {
+    position: relative;
+}
+
+
+.snowman-img .overlay{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
