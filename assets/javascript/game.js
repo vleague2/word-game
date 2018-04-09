@@ -47,7 +47,7 @@
     // Display answer array.
     function displayAnswer() {
         var answerDisplay = document.getElementById("hangman-word");
-        answerDisplay.textContent = answerArray;   
+        answerDisplay.textContent = answerArray.join(" ");   
     }
     
     // Create an array for the incorrect guesses to be added to
@@ -196,7 +196,7 @@ document.onkeyup = function(event) {
                     var incorrectDisplay = document.getElementById("incorrect-letter");
 
                     // and then display the new letter to the user by adding it to the incorrect array 
-                    incorrectDisplay.textContent = incorrectArray;
+                    incorrectDisplay.textContent = incorrectArray.join(" ");
                 }              
             }        
         }           
